@@ -1,0 +1,156 @@
+@use '../util/extends';
+@use '../util/custom-properties';
+
+.header
+{
+    display: block;
+    position: relative;
+    background-color: var(--secondary-color);
+    z-index: 15;
+}
+
+.nav-bar
+{
+    @extend .flex,.container;
+    justify-content: space-between;
+    position: relative;
+    padding: 1.5em 24px;
+    
+    &::after
+    {
+        /* content:' ';
+        position: absolute;
+        height: 1px;
+        background-color: #303030;
+        width: 100%;
+        left: 0;
+        bottom: 0;        */ 
+    }
+
+    &__mob-button
+    {
+        @extend .button;
+        display: none;
+        font-size: 1.4em;
+        width: 19.61px;
+        align-items: center;
+        justify-content: center;
+        margin-right: .7em;
+        background-color: transparent;
+        color: #fff;
+
+        &-cross
+        {
+            display: none
+        }
+        &.active &-bars
+        {
+            display: none;
+        }
+        &.active &-cross
+        {
+            display: block;
+        }
+    }
+    &__logo
+    {
+        @extend .link;
+        font-size: 1.2em;
+        position: relative;
+        transition: ease-in-out 300ms;
+        color: #fff;
+      
+        h1
+        {   
+            font-weight: 800;
+        }
+
+        &:hover
+        {
+            transform: translateY(-.2em);
+            color: var(--primary-color);
+        }
+    }
+    &__list
+    {
+        @extend .flex;
+        list-style: none;
+
+        &-admin
+        {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            top: 100%;
+            background-color: #fff;
+            &:hover
+            {
+                pointer-events: auto;
+                opacity: 1;
+            }
+        }
+    }
+    &__item
+    {
+        position: relative;
+    }
+    &__link
+    {
+        @extend .link;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight:700;
+        font-size: .9em;
+        padding: 0 1.5em;
+        transition: ease-in-out 300ms;
+        letter-spacing: .1em;
+
+        &:hover,&.active
+        {
+            color: var(--primary-color);
+        }
+        &-admin:hover + ul
+        {
+           opacity: 1;
+           pointer-events: auto;
+        }
+    }
+    &__button
+    {
+        @extend .button;
+        position: relative;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1.2em;
+
+        &-admin
+        {
+            &:hover + ul
+            {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 990px) 
+{
+    .nav-bar
+    {
+        justify-content:left;
+
+        &__mob-button
+        {
+            display: flex;
+        }
+        &__list
+        {
+            display: none;
+        }
+        &__button
+        {
+            margin-left: auto;
+        }
+    }
+}

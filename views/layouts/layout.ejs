@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&display=swap"
+      rel="stylesheet">
+   <script src="https://kit.fontawesome.com/da5f644e53.js" crossorigin="anonymous"></script>
+   <script defer type="module" src="/public/javascript/conponents/main.js"></script>
+   <link rel="stylesheet" href="/css/index.css">
+   <title>audioGoose</title>
+</head>
+
+<body>
+   <div class="body-layer" data-body-layer></div>
+   <header class="header">
+      <nav class="nav-bar">
+         <button class="nav-bar__mob-button" data-nav-bar-mob-button>
+            <div class="nav-bar__mob-button-bars">
+               <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="nav-bar__mob-button-cross">
+               <i class="fa-solid fa-xmark"></i>
+            </div>
+         </button>
+         <a href="/" class="nav-bar__logo">
+            <h1>audioGoose</h1>
+         </a>
+         <ul class="nav-bar__list">
+            <li class="nav-bar__item">
+               <a class="nav-bar__link" data-nav-bar-link="home" href="/">HOME</a>
+            </li>
+            <li class="nav-bar__item">
+               <a class="nav-bar__link" data-nav-bar-link="headphones" href="/headphones">headphones</a>
+            </li>
+            <li class="nav-bar__item">
+               <a class="nav-bar__link" data-nav-bar-link="speakers" href="/speakers">speakers</a>
+            </li>
+            <li class="nav-bar__item">
+               <a class="nav-bar__link" data-nav-bar-link="earphones" href="/earphones">earphones</a>
+            </li>
+            <li class="nav-bar__item">
+                  <button class="nav-bar__button-admin">admin</button>
+                  <ul class="nav-bar__list-admin">
+                     <li class="nav-bar__item">
+                        <a href="/products">products</a>
+                     </li>
+                     <li class="nav-bar__item">
+                        <a href="/products/new">add products</a>
+                     </li>
+                     <li class="nav-bar__item">
+                        <a href="/products/delete">delete products</a>
+                     </li>
+                     <li class="nav-bar__item">
+                        <a href="/brands">brands</a>
+                     </li>
+                     <li class="nav-bar__item">
+                        <a href="/brands/new">add brands</a>
+                     </li>
+                     <li class="nav-bar__item">
+                        <a href="/brands/delete">delete brands</a>
+                     </li>
+                  </ul>
+            </li>
+         </ul>
+         <button class="nav-bar__button">
+            <i class="fa-solid fa-cart-shopping"></i>
+         </button>
+      </nav>
+      </nav>
+      <nav class="mob-nav-bar" data-mob-nav-bar>
+         <ul class="mob-nav-bar__list">
+            <li class="mob-nav-bar__item">
+               <a href="/headphones" class="mob-nav-bar__link">
+                  <img src="../../public/dist/images/mob-nav-bar/image-headphones.png" alt="">
+                  <section class="mob-nav-bar__link-section">
+                     <h3>
+                        headphones
+                     </h3>
+                     <span>shop <i class="fa-solid fa-angle-right"></i></span>
+                  </section>
+               </a>
+            </li>
+            <li class="mob-nav-bar__item">
+               <a href="/headphones" class="mob-nav-bar__link">
+                  <img src="../../public/dist/images/mob-nav-bar/image-speakers.png" alt="">
+                  <section class="mob-nav-bar__link-section">
+                     <h3>
+                        speakers
+                     </h3>
+                     <span>shop <i class="fa-solid fa-angle-right"></i></span>
+                  </section>
+               </a>
+            </li>
+            <li class="mob-nav-bar__item">
+               <a href="/headphones" class="mob-nav-bar__link">
+                  <img src="../../public/dist/images/mob-nav-bar/image-earphones.png" alt="">
+                  <section class="mob-nav-bar__link-section">
+                     <h3>
+                        earphones
+                     </h3>
+                     <span>shop <i class="fa-solid fa-angle-right"></i></span>
+                  </section>
+               </a>
+            </li>
+         </ul>
+      </nav>
+      <div class="hero"></div>
+   </header>
+   <%- body %>
+</body>
+
+</html>

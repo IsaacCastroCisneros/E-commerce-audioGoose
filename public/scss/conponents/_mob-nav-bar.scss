@@ -1,0 +1,90 @@
+@use '../util/extends';
+
+.mob-nav-bar
+{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0;
+    top: 0;
+    transform: translateY(-100%);
+    border-radius: 0 0 1em 1em;
+    padding: 6em 1.5em 1.8em;
+    transition: ease-in-out 500ms;
+
+    &__list
+    {
+        @extend .flex;
+        width: 100%;
+        gap: .5em;
+    }
+    &.show
+    {
+        opacity: 1;
+        top: 88px;
+        transform: translateY(0);
+    }
+    &__item
+    {
+        flex: 1;
+        border-radius: .5em;
+        background-color: #f1f1f1;
+        list-style: none;
+    }
+    &__link
+    {
+        @extend .link;
+        width: 100%;
+        position: relative;
+        height: 167.52px;
+
+        img
+        {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,-45%);
+            height: 139px;
+        }
+
+        &:hover span
+        {
+            color: rgb(216, 125, 74);
+        }
+    }
+    &__link-section
+    {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        text-transform:uppercase;
+        padding-bottom: 1.5em;
+        bottom: 0;
+
+        h3
+        {
+            font-size: 1em;
+            margin-bottom: 1em;
+        }
+        span
+        {
+            font-size: .8em;
+            
+            i
+            {
+                margin-left: .5em;
+                font-size: 1.1em;
+                color: rgb(216, 125, 74);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 990px) 
+{
+    .mob-nav-bar
+    {
+        display: block;
+    }
+}

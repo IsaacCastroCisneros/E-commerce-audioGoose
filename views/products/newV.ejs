@@ -1,0 +1,23 @@
+<form action="/products" method="POST" enctype="multipart/form-data">
+    <h1>Add New Products</h1>
+     <%- include('../partials/errorMsg.ejs') %> 
+    <label for="">Name</label>
+    <input type="text" name="name" value="<%=product.name%>">
+    <label for="price">Price</label>
+    <input type="number" name="price" value="<%=product.price%>">
+    <label for="quantity">Quantity</label>
+    <input type="number" name="quantity" min="1" value="<%=product.quantity%>">
+    <label for="date">Date</label>
+    <input type="date" name="date" value="">
+    <label for="cover">Cover</label>
+    <input type="file" name="cover" id="">
+    <label for="brands">Brands</label>
+    <select name="brand" id="">
+        <%brands.forEach(brand=>{%>
+            <% if(brand.name!==null){%>
+                <option value="<%= brand.id %>"><%= brand.name %></option>
+            <%}%>  
+        <%}) %> 
+    </select>
+    <button type="submit">add</button>
+</form>
