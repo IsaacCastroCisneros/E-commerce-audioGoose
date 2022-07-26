@@ -28,7 +28,7 @@
          <a href="/" class="nav-bar__logo">
             <h1>audioGoose</h1>
          </a>
-         <ul class="nav-bar__list">
+         <ul class="nav-bar__list nav-bar__list--none">
             <li class="nav-bar__item">
                <a class="nav-bar__link" data-nav-bar-link="home" href="/">HOME</a>
             </li>
@@ -42,27 +42,27 @@
                <a class="nav-bar__link" data-nav-bar-link="earphones" href="/earphones">earphones</a>
             </li>
             <li class="nav-bar__item">
-                  <button class="nav-bar__button-admin">admin</button>
-                  <ul class="nav-bar__list-admin">
-                     <li class="nav-bar__item">
-                        <a href="/products">products</a>
-                     </li>
-                     <li class="nav-bar__item">
-                        <a href="/products/new">add products</a>
-                     </li>
-                     <li class="nav-bar__item">
-                        <a href="/products/delete">delete products</a>
-                     </li>
-                     <li class="nav-bar__item">
-                        <a href="/brands">brands</a>
-                     </li>
-                     <li class="nav-bar__item">
-                        <a href="/brands/new">add brands</a>
-                     </li>
-                     <li class="nav-bar__item">
-                        <a href="/brands/delete">delete brands</a>
-                     </li>
-                  </ul>
+               <button class="nav-bar__button-admin">admin</button>
+               <ul class="nav-bar__list-admin">
+                  <li class="nav-bar__item">
+                     <a href="/products">products</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a href="/products/new">add products</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a href="/products/delete">delete products</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a href="/brands">brands</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a href="/brands/new">add brands</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a href="/brands/delete">delete brands</a>
+                  </li>
+               </ul>
             </li>
          </ul>
          <button class="nav-bar__button">
@@ -107,9 +107,54 @@
             </li>
          </ul>
       </nav>
-      <div class="hero"></div>
    </header>
    <%- body %>
+      <footer class="footer-block">
+         <div class="footer">
+            <nav class="footer__nav">
+               <a href="/">
+                  <h1>audioGoose</h1>
+               </a>
+                
+
+                <ul class="nav-bar__list">
+                  <li class="nav-bar__item">
+                     <a class="nav-bar__link" data-nav-bar-link="home" href="/">HOME</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a class="nav-bar__link" data-nav-bar-link="headphones" href="/headphones">headphones</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a class="nav-bar__link" data-nav-bar-link="speakers" href="/speakers">speakers</a>
+                  </li>
+                  <li class="nav-bar__item">
+                     <a class="nav-bar__link" data-nav-bar-link="earphones" href="/earphones">earphones</a>
+                  </li>
+            </nav>
+            <div class="footer__body">
+               <p class="footer__body-description">
+                  Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.
+               </p>
+               <p  class="footer__body-copyright">
+                  Copyright 2021. All Rights Reserved
+               </p>
+               <div class="footer__body-social">
+                  <a href="#" class="footer__body-social-icon">
+                     <i class="fa-brands fa-facebook-square"></i>
+                  </a>
+                  <a href="#" class="footer__body-social-icon">
+                     <i class="fa-brands fa-twitter"></i>
+                  </a>
+                  <a href="#" class="footer__body-social-icon">
+                     <i class="fa-brands fa-instagram"></i>
+                  </a>
+               </div>
+            </div>
+            <p class="footer__copyright">
+               Copyright 2021. All Rights Reserved
+            </p>
+         </div>
+      </footer>
 </body>
 
 </html>

@@ -1,19 +1,19 @@
 import express from "express";
-import { Product,coverImageBasePath} from "../models/productM.js";
+import { Product,imageBasePath} from "../models/productM.js";
 import { Brand } from "../models/brandsM.js";
 import fs from "fs";
 
 import multer from "multer";
 import path from "path";
 
-const uploadPath = path.join('public',coverImageBasePath);
-const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+const uploadPath = path.join('public',imageBasePath);
+const mimeTypes = ['image/jpeg','image/png','image/gif']
 const upload = multer(
     {
        dest: uploadPath,
        fileFilter: (req,file,callback)=>
        {
-        callback(null,imageMimeTypes.includes(file.mimetype));
+        callback(null,mimeTypes.includes(file.mimetype));
        }
     }
 )
@@ -52,9 +52,10 @@ productsRouter.get('/new',async(req,res)=>
     renderNewPage(res,new Product());
 });
 
-productsRouter.post('/',upload.single('cover'),async(req,res)=>
+productsRouter.post('/',upload.array('cover',12),async(req,res)=>
 {
-    const fileName = req.file !== undefined ? req.file.filename : null;
+    const fileNames = req.files || null
+
     const product = new Product(
         {
             name:req.body.name,
@@ -62,10 +63,11 @@ productsRouter.post('/',upload.single('cover'),async(req,res)=>
             date:new Date(req.body.date),
             quantity:req.body.quantity,
             brand:req.body.brand,
-            coverImageName:fileName
+            coverImageName:fileNames[0].filename,
+            imageName:fileNames[1].filename,
         }
     )
-    
+ 
     try
     {
         const newProduct = await product.save();
@@ -76,6 +78,7 @@ productsRouter.post('/',upload.single('cover'),async(req,res)=>
         if(product.coverImageName !== undefined)
         {
            removeProductCover(product.coverImageName);
+           removeProductCover(product.imageName);
         }
         renderNewPage(res,product,true)
     }

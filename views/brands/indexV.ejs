@@ -1,3 +1,9 @@
+<form action="/brands" method="GET">
+    <label for="">Brand</label>
+    <input type="text" name="brand">
+    <button type="submit">add</button>
+</form>
+
 <% brands.forEach(brand=> {%>
-    <%= brand.name %> 
+    <span><%= brand.name %></span> 
 <% }); %> 

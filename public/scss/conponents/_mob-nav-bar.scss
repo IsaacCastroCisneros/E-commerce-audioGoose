@@ -1,9 +1,11 @@
 @use '../util/extends';
+@use '../util/custom-properties';
 
 .mob-nav-bar
 {
     display: none;
     position: absolute;
+    z-index: 10;
     width: 100%;
     background-color: #fff;
     opacity: 0;
@@ -13,6 +15,15 @@
     padding: 6em 1.5em 1.8em;
     transition: ease-in-out 500ms;
 
+    &--desktop
+    {
+        display: block;
+        position: relative;
+        padding: 0;
+        background-color: #fafafa;
+        transform: translateY(0);
+        opacity: 1;
+    }
     &__list
     {
         @extend .flex;
@@ -50,7 +61,7 @@
 
         &:hover span
         {
-            color: rgb(216, 125, 74);
+            color: var(--primary-color);
         }
     }
     &__link-section
@@ -75,7 +86,7 @@
             {
                 margin-left: .5em;
                 font-size: 1.1em;
-                color: rgb(216, 125, 74);
+                color: var(--primary-color);
             }
         }
     }
@@ -86,5 +97,22 @@
     .mob-nav-bar
     {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 470px) 
+{
+    .mob-nav-bar
+    {
+        ul
+        {
+            width: 100%;
+            gap: 5em;
+            flex-direction: column;
+            li
+            {
+              width: 100%;
+            }
+        }
     }
 }

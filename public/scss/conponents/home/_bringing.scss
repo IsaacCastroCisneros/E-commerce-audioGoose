@@ -1,0 +1,125 @@
+@use '../../util/custom-properties';
+@use '../../util/extends';
+
+.bringing
+{
+    @extend .flex;
+    margin-top: 8rem;
+    color: var(--secondary-color);
+
+    & > *
+    {
+       flex: 1;
+    }
+    &__section
+    {
+        h1
+        {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+
+            span
+            {
+                color: var(--primary-color);
+            }
+        }
+        p
+        {
+            color: var(--text-color);
+            padding-right: 3rem;
+        }
+    }
+    &__aside
+    {
+       overflow: hidden; 
+       padding-left: 3rem;
+
+       img
+       {
+         border-radius: 7.5px;
+         width: 100%;
+       }
+
+       &-img--mob-1,&-img--mob-2
+       {
+          display: none;
+       }
+    }
+}
+
+@media only screen and (max-width: 990px) 
+{
+    .bringing
+    {
+        flex-direction: column-reverse;
+
+        & > *
+        {
+            width: 100%;
+        }
+
+        &__aside
+        {
+            height: fit-content;
+            margin-bottom: 2rem;
+            padding: 0;
+
+            &-img
+            {
+                display: none;
+            }
+
+            &-img--mob-1
+            {
+                display: block;
+                width: 100%;
+            }
+        }
+        &__section
+        {
+            text-align: center;
+            padding: 0 4.2rem;
+
+            h1
+            {
+                margin-bottom: 2.5rem;
+            }
+            p
+            {
+                padding: 0;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 500px) 
+{
+    .bringing
+    {
+
+        &__aside
+        {
+            height: fit-content;
+            margin-bottom: 2rem;
+            padding: 0;
+
+            &-img
+            {
+                display: none;
+            }
+
+            &-img--mob-2
+            {
+                display: block;
+                width: 100%;
+            }
+        }
+        &__section
+        {
+            padding: 0;
+            h1
+            {
+                font-size: 2rem;
+            }
+        }
+    }
+}

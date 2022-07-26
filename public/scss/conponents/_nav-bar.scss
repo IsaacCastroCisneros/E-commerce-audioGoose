@@ -18,13 +18,15 @@
     
     &::after
     {
-        /* content:' ';
+        content:' ';
         position: absolute;
+        z-index: 9;
         height: 1px;
         background-color: #303030;
-        width: 100%;
-        left: 0;
-        bottom: 0;        */ 
+        width: calc(100% - 48px);
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0; 
     }
 
     &__mob-button
@@ -79,6 +81,7 @@
         &-admin
         {
             position: absolute;
+            z-index: 10;
             pointer-events: none;
             opacity: 0;
             top: 100%;
@@ -144,7 +147,28 @@
         {
             display: flex;
         }
-        &__list
+        &__list--none
+        {
+            display: none;
+        }
+        &__button
+        {
+            margin-left: auto;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) 
+{
+    .nav-bar
+    {
+        justify-content:left;
+
+        &__mob-button
+        {
+            display: flex;
+        }
+        &__list--none
         {
             display: none;
         }

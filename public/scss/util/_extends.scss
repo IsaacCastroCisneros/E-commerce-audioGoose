@@ -1,9 +1,11 @@
+@use '../util/custom-properties';
+
 .flex
 {
     display: flex;
     align-items: center;
 }
-.link
+.link,.link-button
 {
     display: inline-block;
     color: #000;
@@ -18,9 +20,25 @@
     margin: 0 auto;
     padding: 0 24px;
 }
-.button
+.button,.link-button
 {
     display: inline-block;
     border: none;
     cursor: pointer;
+}
+.link-button
+{
+   background-color: var(--primary-color);
+   color: #fff;
+   text-transform: uppercase;
+   letter-spacing: .1em;
+   font-size: .9em;
+   font-weight: 800;
+   padding: 1em 2em;
+   transition: ease-in-out 200ms;
+
+   &:hover
+   {
+      filter:brightness(120%);
+   }
 }

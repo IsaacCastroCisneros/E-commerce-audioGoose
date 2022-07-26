@@ -1,0 +1,12 @@
+@use '../../util/custom-properties';
+@use '../../util/extends';
+
+.content-block
+{
+    background-color: #fafafa;
+}
+.content
+{
+    @extend .container;
+    padding-top: 13.5em;
+}

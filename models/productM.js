@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 import path from "path";
 
-const coverImageBasePath = 'uploads/productCover';
+const imageBasePath = 'uploads/productCover'
 
 const productSchema = new mongoose.Schema(
     {
@@ -21,6 +21,11 @@ const productSchema = new mongoose.Schema(
             type:String,
             required:true
         },
+        imageName:
+        {
+            type:String,
+            required:true
+        },
         quantity:
         {
             type:Number,
@@ -31,6 +36,11 @@ const productSchema = new mongoose.Schema(
             type:Number,
             required: true
         },
+        type:
+        {
+           type:String,
+           required: true 
+        },
         brand:
         {
             type:mongoose.Schema.Types.ObjectId,
@@ -40,14 +50,20 @@ const productSchema = new mongoose.Schema(
     }
 );
 
-productSchema.virtual('coverImagePath').get(function()
+productSchema.virtual('coverPath').get(function()
 {
-    if(this.coverImageName !==null)
+    if(this.coverImageName!==null && this.coverImageName!==undefined)
     {
-       return path.join('/public',coverImageBasePath,this.coverImageName)     
+        return path.join('/public',imageBasePath,this.coverImageName)
     }
-})
+});
+productSchema.virtual('imagePath').get(function()
+{
+    if(this.imageName!==null && this.imageName!==undefined)
+    {
+        return path.join('/public',imageBasePath,this.imageName)
+    }
+});
 
 const Product = mongoose.model('Product',productSchema);
-
-export {Product,coverImageBasePath}
+export {Product,imageBasePath}
