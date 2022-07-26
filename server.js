@@ -21,7 +21,7 @@ app.use(expressLayouts);
 app.use(express.static('./'));
 app.use(express.urlencoded({extended:true}));
 
-mongoose.connect('mongodb://localhost/audioGoose');
+mongoose.connect(process.env.DATABASE_URL,{useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error',err=>console.log(`mongodb | an error occureed: ${err}`));
 db.once('open',()=>console.log(`mongodb | successfully connected`));

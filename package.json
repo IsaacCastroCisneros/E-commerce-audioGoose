@@ -21,6 +21,7 @@
     "nodemon": "^2.0.19"
   },
   "devDependencies": {
+    "dotenv": "^16.0.1",
     "sass": "^1.53.0"
   }
 }
