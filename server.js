@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import * as dotenv from "dotenv";
 /* import path from "path";
 import {URL} from "url"; */
 import expressLayouts from "express-ejs-layouts";
@@ -9,6 +10,11 @@ import {headphonesRouter} from "./routes/headphonesR.js";
 import {speakersRouter} from "./routes/speakersR.js";
 import {productsRouter} from "./routes/productsR.js";
 import {brandsRouter} from "./routes/brandsR.js";
+
+if(process.env.NODE_ENV !== 'production')
+{
+   dotenv.config();
+}
 
 const app = express();
 
