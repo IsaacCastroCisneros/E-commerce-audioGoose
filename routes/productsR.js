@@ -63,6 +63,7 @@ productsRouter.post('/',upload.array('cover',12),async(req,res)=>
             date:new Date(req.body.date),
             quantity:req.body.quantity,
             brand:req.body.brand,
+            type:req.body.type,
             coverImageName:fileNames[0].filename,
             imageName:fileNames[1].filename,
         }
@@ -73,8 +74,9 @@ productsRouter.post('/',upload.array('cover',12),async(req,res)=>
         const newProduct = await product.save();
         res.redirect('./products');
     }
-    catch(error)
+    catch(err)
     {
+        console.log(err)
         if(product.coverImageName !== undefined)
         {
            removeProductCover(product.coverImageName);
