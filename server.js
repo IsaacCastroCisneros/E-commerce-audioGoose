@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import * as dotenv from "dotenv";
+import dotenv from "dotenv";
 /* import path from "path";
 import {URL} from "url"; */
 import expressLayouts from "express-ejs-layouts";
