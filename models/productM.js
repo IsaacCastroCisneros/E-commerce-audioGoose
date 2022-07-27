@@ -97,7 +97,7 @@ productSchema.virtual('imagePath').get(function()
 });
 productSchema.virtual('image1Path').get(function()
 {
-    if(this.image1!==null && this.imageType1!==undefined)2
+    if(this.image1!==null && this.imageType1!==undefined)
     {
         return `data:${this.imageType1};charset-utf-8;base64,${this.image1.toString('base64')}`
     }
