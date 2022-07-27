@@ -16,10 +16,6 @@ productsRouter.get('/',async(req,res)=>
         {
             products,
         })
-        products.forEach(product=>
-            {
-                console.log(product.name) 
-            })
         
     }
     catch
