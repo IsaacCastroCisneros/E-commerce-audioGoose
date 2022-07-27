@@ -233,7 +233,7 @@ body {
 }
 .mob-nav-bar__list {
   width: 100%;
-  gap: 0.5em;
+  gap: 2em;
 }
 .mob-nav-bar.show {
   opacity: 1;

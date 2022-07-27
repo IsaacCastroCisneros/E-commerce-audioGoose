@@ -1,22 +1,8 @@
 import express from "express";
-import { Product,imageBasePath} from "../models/productM.js";
+import { Product} from "../models/productM.js";
 import { Brand } from "../models/brandsM.js";
-import fs from "fs";
 
-import multer from "multer";
-import path from "path";
-
-const uploadPath = path.join('public',imageBasePath);
-const mimeTypes = ['image/jpeg','image/png','image/gif']
-const upload = multer(
-    {
-       dest: uploadPath,
-       fileFilter: (req,file,callback)=>
-       {
-        callback(null,mimeTypes.includes(file.mimetype));
-       }
-    }
-)
+const mimeTypes = ['image/jpeg','image/png','image/gif'];
 
 const productsRouter = express.Router();
 
@@ -25,26 +11,21 @@ productsRouter.get('/',async(req,res)=>
     try
     {
         const products = await Product.find({});
+        
         res.render('./products/indexV',
         {
             products,
         })
+        products.forEach(product=>
+            {
+                console.log(product.name) 
+            })
         
     }
     catch
     {
         res.redirect('/')
     }
-
-   /*  try
-    {
-      
-    }
-    catch(err)
-    {
-
-    } */
-
 });
 
 productsRouter.get('/new',async(req,res)=>
@@ -52,23 +33,25 @@ productsRouter.get('/new',async(req,res)=>
     renderNewPage(res,new Product());
 });
 
-productsRouter.post('/',upload.array('cover',12),async(req,res)=>
+productsRouter.post('/',async(req,res)=>
 {
-    const fileNames = req.files || null
 
     const product = new Product(
         {
             name:req.body.name,
             price:req.body.price,
+            description:req.body.description,
             date:new Date(req.body.date),
             quantity:req.body.quantity,
             brand:req.body.brand,
             type:req.body.type,
-            coverImageName:fileNames[0].filename,
-            imageName:fileNames[1].filename,
         }
     )
- 
+    saveCover(product,req.body.cover,'coverImage');
+    saveCover(product,req.body.image,'image');
+    saveCover(product,req.body.image1,'image1');
+    saveCover(product,req.body.image2,'image2');
+
     try
     {
         const newProduct = await product.save();
@@ -76,24 +59,56 @@ productsRouter.post('/',upload.array('cover',12),async(req,res)=>
     }
     catch(err)
     {
-        console.log(err)
-        if(product.coverImageName !== undefined)
-        {
-           removeProductCover(product.coverImageName);
-           removeProductCover(product.imageName);
-        }
+       
         renderNewPage(res,product,true)
     }
 })
 
-
-function removeProductCover(fileName)
+function saveCover(product,file,propertie)
 {
-    fs.unlink(path.join(uploadPath,fileName),err=>
+    if(file===null)return
+    const img = JSON.parse(file);
+
+    if(img!==null && mimeTypes.includes(img.type))
     {
-        console.error(err);
-    })
+        const buffer = newBuffer(img);
+
+        switch(propertie)
+        {
+            case 'coverImage':
+            {
+                product.coverImage = buffer.buffer;
+                product.coverImageType = buffer.type;
+            }
+            break;
+            case 'image':
+            {
+                product.image = buffer.buffer;
+                product.imageType = buffer.type;
+            }
+            break;
+            case 'image1':
+            {
+                product.image1 = buffer.buffer;
+                product.imageType1 = buffer.type;
+            }
+            break;
+            case 'image2':
+            {
+                product.image2 = buffer.buffer;
+                product.imageType2 = buffer.type;
+            }
+        }
+    }
 }
+function newBuffer(img)
+{
+    return {
+        buffer:new Buffer.from(img.data,'base64'),
+        type:img.type
+    }
+}
+
 async function renderNewPage(res,product,hasError=false)
 {
     try

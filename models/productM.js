@@ -1,8 +1,4 @@
-/* import { ObjectId } from "mongodb"; */
 import mongoose from "mongoose";
-import path from "path";
-
-const imageBasePath = 'uploads/productCover'
 
 const productSchema = new mongoose.Schema(
     {
@@ -16,12 +12,42 @@ const productSchema = new mongoose.Schema(
             type:Date,
             required: true
         },
-        coverImageName:
+        coverImage:
+        {
+            type:Buffer,
+            required:true
+        },
+        coverImageType:
         {
             type:String,
             required:true
         },
-        imageName:
+        image:
+        {
+            type:Buffer,
+            required:true
+        },
+        imageType:
+        {
+            type:String,
+            required:true
+        },
+        image1:
+        {
+            type:Buffer,
+            required:true
+        },
+        imageType1:
+        {
+            type:String,
+            required:true
+        },
+        image2:
+        {
+            type:Buffer,
+            required:true
+        },
+        imageType2:
         {
             type:String,
             required:true
@@ -41,6 +67,11 @@ const productSchema = new mongoose.Schema(
            type:String,
            required: true 
         },
+        description:
+        {
+            type:String,
+            require:true
+        },
         brand:
         {
             type:mongoose.Schema.Types.ObjectId,
@@ -52,18 +83,33 @@ const productSchema = new mongoose.Schema(
 
 productSchema.virtual('coverPath').get(function()
 {
-    if(this.coverImageName!==null && this.coverImageName!==undefined)
+    if(this.coverImage!==null && this.coverImageType!==undefined)
     {
-        return path.join('/public',imageBasePath,this.coverImageName)
+        return `data:${this.coverImageType};charset-utf-8;base64,${this.coverImage.toString('base64')}`
     }
 });
 productSchema.virtual('imagePath').get(function()
 {
-    if(this.imageName!==null && this.imageName!==undefined)
+    if(this.image!==null && this.imageType!==undefined)
     {
-        return path.join('/public',imageBasePath,this.imageName)
+        return `data:${this.imageType};charset-utf-8;base64,${this.image.toString('base64')}`
+    }
+});
+productSchema.virtual('image1Path').get(function()
+{
+    if(this.image1!==null && this.imageType1!==undefined)2
+    {
+        return `data:${this.imageType1};charset-utf-8;base64,${this.image1.toString('base64')}`
+    }
+});
+productSchema.virtual('image2Path').get(function()
+{
+    if(this.image2!==null && this.imageType2!==undefined)
+    {
+        return `data:${this.imageType2};charset-utf-8;base64,${this.image2.toString('base64')}`
     }
 });
 
+
 const Product = mongoose.model('Product',productSchema);
-export {Product,imageBasePath}
+export {Product}

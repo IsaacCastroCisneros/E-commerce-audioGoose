@@ -25,7 +25,8 @@ app.set('layout','./layouts/layout');
 app.use(expressLayouts);
 /* app.use(express.static('public')); */
 app.use(express.static('./'));
-app.use(express.urlencoded({extended:true}));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb',extended:true}));
 
 mongoose.connect(process.env.DATABASE_URL,{useNewUrlParser: true});
 const db = mongoose.connection;
