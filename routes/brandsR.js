@@ -11,7 +11,6 @@ brandsRouter.get('/', async(req,res)=>
     {
         brands.name = new RegExp(req.query.brand,'i');
     }
-    
     try
     {
         const brandsFound = await Brand.find(brands);

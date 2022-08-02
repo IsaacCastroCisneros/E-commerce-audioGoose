@@ -2,11 +2,13 @@
 @forward  '../scss/util/extends';
 @forward  '../scss/util/custom-properties';
 @forward  '../scss/conponents/body-layers';
+@forward  '../scss/conponents/shopcart/notification';
+@forward  '../scss/conponents/partials/shopcart';
 @forward  '../scss/conponents/nav-bar';
 @forward  '../scss/conponents/mob-nav-bar';
 @forward  '../scss/conponents/home/hero';
-@forward  '../scss/conponents/home/content';
-@forward  '../scss/conponents/home/menu';
+@forward  '../scss/conponents/headphones/hero';
+@forward  '../scss/conponents/partials/content';
 @forward  '../scss/conponents/home/banners';
 @forward  '../scss/conponents/home/bringing';
 @forward  '../scss/conponents/home/footer';

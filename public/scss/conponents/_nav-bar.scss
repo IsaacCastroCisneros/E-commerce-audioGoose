@@ -124,7 +124,7 @@
         position: relative;
         background-color: transparent;
         color: #fff;
-        font-size: 1.2em;
+        font-size: 1.5rem;
 
         &-admin
         {
@@ -133,6 +133,28 @@
                 opacity: 1;
                 pointer-events: auto;
             }
+        }
+    }
+    &__notification
+    {
+        @extend .flex;
+        opacity: 0;
+        justify-content: center;
+        position: absolute;
+        font-size: .8rem;
+        font-weight: bold;
+        pointer-events: none;
+        background-color: var(--primary-color);
+        top: -.8rem;
+        right: -.8rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 100%;
+
+        &.show
+        {
+            opacity: 1;
+            pointer-events: auto;
         }
     }
 }

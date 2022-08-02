@@ -22,6 +22,48 @@
 
 <body>
    <div class="body-layer" data-body-layer></div>
+   <div class="shopcart" data-shopcart>
+      <div class="shopcart__top-container">
+         <span>CART (<span class="shopcart__quantity" data-shopcart-quantity>0</span>)</span>
+         <button class="shopcart__button-remove" data-shopcart-button-remove>remove all</button>
+      </div>
+      <template class="shopcart__template" data-shopcart-template>
+         <div class="shopcart__product" data-shopcart-product>
+            <div>
+               <img class="shopcart__product-img" data-shopcart-product-img src="" alt="">
+            </div>
+            <section class="shopcart__product-section">
+                <h5 class="shopcart__product-name" data-shopcart-product-name></h5>
+                <span class="shopcart__product-price" data-shopcart-product-price></span>
+            </section>
+            <form data-shopcart-form>
+               <button type="submit" class="shopcart__product-input-button plus" data-shopcart-product-input-button>+</button>
+               <input class="shopcart__product-input" type="number" data-shopcart-product-input>
+               <button type="submit" class="shopcart__product-input-button minus" data-shopcart-product-input-button>-</button>
+            </form>
+         </div>
+      </template>
+      <div class="shopcart__product-container" data-shopcart-product-container></div>
+      <div class="shopcart__totals">
+         <span>total</span>
+         <span data-shopcart-total></span>
+      </div>
+      <a class="shopcart__link-checkout" href="">checkout</a>
+   </div>
+   <div class="notification-block" data-notification-block>
+      <div class="notification__container" data-notification-container></div>
+      <template data-notification-template>
+         <span class="notification" data-notification>
+            <div class="notification__icon-check">
+               <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <button class="notification__icon-cross" data-notification-icon-cross>
+               <i class="fa-solid fa-xmark"></i>
+            </button>
+            "<span class="notification__name" data-notification-name></span>" was added To cart
+         </span>
+      </template>
+   </div>
    <header class="header">
       <nav class="nav-bar">
          <button class="nav-bar__mob-button" data-nav-bar-mob-button>
@@ -72,8 +114,9 @@
                </ul>
             </li>
          </ul>
-         <button class="nav-bar__button">
+         <button class="nav-bar__button" data-nav-bar-button>
             <i class="fa-solid fa-cart-shopping"></i>
+            <span class="nav-bar__notification" data-nav-bar-notification>00</span>
          </button>
       </nav>
       </nav>
@@ -122,8 +165,6 @@
                <a href="/">
                   <h1>audioGoose</h1>
                </a>
-
-
                <ul class="nav-bar__list">
                   <li class="nav-bar__item">
                      <a class="nav-bar__link" data-nav-bar-link="home" href="/">HOME</a>

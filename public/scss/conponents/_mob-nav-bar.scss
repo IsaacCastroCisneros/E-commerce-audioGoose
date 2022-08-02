@@ -24,6 +24,10 @@
         transform: translateY(0);
         opacity: 1;
     }
+    &--margin
+    {
+        margin-top: 10rem;
+    }
     &__list
     {
         @extend .flex;

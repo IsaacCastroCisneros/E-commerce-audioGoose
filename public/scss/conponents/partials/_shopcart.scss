@@ -1,0 +1,161 @@
+@use '../../util/custom-properties';
+@use '../../util/extends';
+
+.shopcart
+{
+    width: 377px;
+    max-width: 100%;
+    position: absolute;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: .3rem;
+    right: 5rem;
+    top: 8rem;
+    background-color: #fff;
+    z-index: 30;
+
+    &.show
+    {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &__top-container
+    {
+        @extend .flex;
+        margin-bottom: 1.8rem;
+        justify-content: space-between;
+
+        span
+        {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-color-black);
+        }
+    }
+    &__button-remove
+    {
+        @extend .button;
+        font-size: 1rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        text-decoration: underline;
+        background-color: transparent;
+        color: var(--text-color);   
+        transition: ease-in-out 200ms;
+
+        &:hover
+        {
+            color: var(--primary-color);
+        }
+    }
+    &__product-container
+    {
+        margin-bottom: 1.8rem;
+    }
+    &__product
+    {
+        @extend .flex;
+        margin-bottom: 1.5rem;
+
+        div:first-child
+        {
+           @extend .flex;
+           justify-content: center;
+           flex: 0 1 20%;
+           background-color: var(--background-color);
+           padding: .2rem 0;
+           border-radius: .2rem;
+
+           img
+           {
+             width: 95%;
+           }
+        }
+        &-section
+        {
+            flex: 1;
+            padding: 0 .5rem;
+        }
+        form
+        {
+            @extend .flex;
+            flex: 0 1 30%;
+            background-color: #f1f1f1;
+
+            & > button
+            {
+                @extend .button;
+                width: 35%;
+                padding: .5rem 0;
+                transition: ease-in-out 200ms;
+
+                &:hover
+                {
+                    background-color: #e0e0e0;
+                    color: var(--primary-color);
+                }
+
+            }
+            input
+            {
+                background-color: transparent;
+                font-weight: bold;
+                border: none;
+                outline: none;
+                width: 30%;
+                text-align: center;
+            }
+        }
+        &-name
+        {
+            color: var(--text-color-black);
+            font-size: .9rem;
+        }
+        &-price
+        {
+            color: var(--text-color);
+            font-size: .9rem;
+            font-weight: bold;
+        }
+
+    }
+    &__totals
+    {
+        @extend .flex;
+        justify-content: space-between;
+        margin-bottom: 1.3rem;
+
+        span:first-child
+        {
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+        span:last-child
+        {
+            color: var(--text-color-black);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+    }
+    &__link-checkout
+    {
+        @extend .link-button;
+        text-align: center;
+        display: block;
+        padding: .8rem 1rem;
+        font-size: .8rem;
+    }
+}
+
+@media only screen and (max-width:500px)
+{
+    .shopcart
+    {
+        width: 88%;
+        left: 50%;
+        right: 0;
+        transform: translateX(-50%);
+    }
+}

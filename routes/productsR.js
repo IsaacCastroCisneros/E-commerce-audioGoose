@@ -1,6 +1,6 @@
 import express from "express";
-import { Product} from "../models/productM.js";
-import { Brand } from "../models/brandsM.js";
+import {Product} from "../models/productM.js";
+import {Brand } from "../models/brandsM.js";
 
 const mimeTypes = ['image/jpeg','image/png','image/gif'];
 
