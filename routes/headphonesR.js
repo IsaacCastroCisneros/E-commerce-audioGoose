@@ -11,12 +11,12 @@ headphonesRouter.get('/', async(req, res)=>
       const proX = await Product.findById('62e09a4871896d371d829a75');
       const xG435 = await Product.findById('62e0a30071896d371d829a7a');
      
-      res.render('./headphones/indexV',
+      res.render('./headphones/indexV'/* ,
       {
          xbox,
          proX,
          xG435
-      });
+      } */);
    }
    catch
    {
@@ -25,7 +25,7 @@ headphonesRouter.get('/', async(req, res)=>
    
 })
 
-headphonesRouter.get('/:id',async(req,res)=>
+/* headphonesRouter.get('/:id',async(req,res)=>
 {
    try
    {
@@ -37,6 +37,6 @@ headphonesRouter.get('/:id',async(req,res)=>
       res.send('an error has ocurred');
    }
    
-})
+}) */
 
 export {headphonesRouter}
