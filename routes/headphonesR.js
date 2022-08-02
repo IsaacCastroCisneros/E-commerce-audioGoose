@@ -7,11 +7,12 @@ headphonesRouter.get('/', async(req, res)=>
 {
    try
    {
-      const xbox = await Product.findById('62e0912605b0616b74a76971');
+      /* const xbox = await Product.findById('62e0912605b0616b74a76971');
       const proX = await Product.findById('62e09a4871896d371d829a75');
-      const xG435 = await Product.findById('62e0a30071896d371d829a7a');
+      const xG435 = await Product.findById('62e0a30071896d371d829a7a'); */
+      const lmao = 5;
      
-      res.render('./headphones/indexV'/* ,
+      res.render('./headphones/indexV',{lmao} /* ,
       {
          xbox,
          proX,
