@@ -10,13 +10,11 @@ headphonesRouter.get('/', async(req, res)=>
       /* const xbox = await Product.findById('62e0912605b0616b74a76971');
       const proX = await Product.findById('62e09a4871896d371d829a75');
       const xG435 = await Product.findById('62e0a30071896d371d829a7a'); */
-      const proXf = await Product.find({quantity:15});
-
-      const proX =
-      {
-         name:'444'
-      }
-     
+      const proX = await Product.find();
+      proX.forEach(entry=>
+         {
+            console.log(entry.price)
+         })
       res.render('./headphones/indexV',{proX} /* ,
       {
          xbox,
