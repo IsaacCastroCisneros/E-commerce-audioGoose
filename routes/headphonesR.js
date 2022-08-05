@@ -1,5 +1,5 @@
 import express from "express";
-import {Product} from "../models/productM.js"
+import {Product} from "../models/productM.js";
 const headphonesRouter = express.Router();
 
 
@@ -7,20 +7,16 @@ headphonesRouter.get('/', async(req, res)=>
 {
    try
    {
-      /* const xbox = await Product.findById('62e0912605b0616b74a76971');
-      const proX = await Product.findById('62e09a4871896d371d829a75');
-      const xG435 = await Product.findById('62e0a30071896d371d829a7a'); */
-      const proX = await Product.find();
-      proX.forEach(entry=>
-         {
-            console.log(entry.price)
-         })
-      res.render('./headphones/indexV',{proX} /* ,
+      const a10 = await Product.findOne({name:'A10'});
+      const a20 = await Product.findOne({name:'a20'});
+      const g435 = await Product.findOne({name:'G435'});
+     
+      res.render('./headphones/indexV',
       {
-         xbox,
-         proX,
-         xG435
-      } */);
+         a10,
+         a20,
+         g435,
+      });
    }
    catch
    {
@@ -28,19 +24,5 @@ headphonesRouter.get('/', async(req, res)=>
    }
    
 })
-
-/* headphonesRouter.get('/:id',async(req,res)=>
-{
-   try
-   {
-      const product = await Product.findById(req.params.id)
-      res.render('./products/productV',{product})
-   }
-   catch
-   {
-      res.send('an error has ocurred');
-   }
-   
-}) */
 
 export {headphonesRouter}

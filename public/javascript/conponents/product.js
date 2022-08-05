@@ -4,7 +4,7 @@ export default function product()
 {
     const input = document.querySelector('[data-content-product-form-input]');
     if(input===null || input===undefined)return
-    
+
     window.addEventListener('click',e=>
     {     
         if(e.target.closest('[data-content-product-form-btn]')===null)return
@@ -39,3 +39,12 @@ export default function product()
         input.value = only2CharValue(input.value);
     })
 }
+
+/* function identDescription()
+{
+    const description = document.querySelector('[data-content-product-paragraph]').textContent;
+    
+    const newStr = description.split('•');
+    const newStrFiltred = newStr.filter(entry=>entry!=='');
+    console.log(newStrFiltred)
+} */

@@ -118,6 +118,36 @@
            pointer-events: auto;
         }
     }
+    &__input-container
+    {
+        @extend .flex;
+        width: 10rem;
+        max-width: 100%;
+        flex-direction: row-reverse;
+        background-color: var(--background-color2);
+        border-radius: .2rem;
+        padding: .5rem;
+
+        button
+        {
+            @extend .button;
+            background-color: var(--backgroun-color3);
+
+            i
+            {
+                color: var(--primary-color);
+            }
+        }
+
+        input
+        {
+            width: 100%;
+            outline: none;
+            border: none;
+            background-color: transparent;
+
+        }
+    }
     &__button
     {
         @extend .button;

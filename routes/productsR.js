@@ -36,6 +36,7 @@ productsRouter.post('/',async(req,res)=>
         {
             name:req.body.name,
             price:req.body.price,
+            preview:req.body.preview,
             description:req.body.description,
             date:new Date(req.body.date),
             quantity:req.body.quantity,

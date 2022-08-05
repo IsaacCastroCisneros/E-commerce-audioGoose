@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import {Brand} from "./brandsM.js";
 
 const productSchema = new mongoose.Schema(
     {
@@ -67,6 +68,11 @@ const productSchema = new mongoose.Schema(
            type:String,
            required: true 
         },
+        preview:
+        {
+            type:String,
+            required:true
+        },
         description:
         {
             type:String,
@@ -109,7 +115,13 @@ productSchema.virtual('image2Path').get(function()
         return `data:${this.imageType2};charset-utf-8;base64,${this.image2.toString('base64')}`
     }
 });
+productSchema.virtual('descriptionIdented').get(function()
+{
+    const arr = this.description.split('•');
+    const filter = arr.filter(entry=>entry!=='');
 
+    return filter
+})
 
 const Product = mongoose.model('Product',productSchema);
 export {Product}

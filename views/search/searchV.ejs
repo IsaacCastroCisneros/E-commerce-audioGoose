@@ -1,0 +1,63 @@
+<main class="main">
+  <div class="content-block">
+    <div class="content content--padding">
+      <div class="searcher">
+        <div class="searcher__container">
+          <h1>search</h1>
+          <h3>filters</h3>
+          <form class="searcher-form" action="/search" method="GET" id="searcher-form">
+            <div class="searcher-form__block">
+              <div class="searcher-form__input-container searcher-form__container">
+                <label>Product Name</label>
+                <input type="text" name="name" placeholder="A10">
+              </div>
+              <div class="searcher-form__select-container searcher-form__container">
+                <label>Brand</label>
+                <select name="brand">
+                  <option value="any">Any</option>
+                  <% brands.forEach(brand=>{%>
+                    <option value="<%=brand.id%>">
+                      <%=brand.name%>
+                    </option>
+                    <%})%>
+                </select>
+              </div>
+              <div class="searcher-form__select-container searcher-form__container">
+                <label>Type</label>
+                <select name="type">
+                  <option value="any">Any</option>
+                  <option value="headphones">headphones</option>
+                  <option value="earphones">earphones</option>
+                  <option value="speakers">speakers</option>
+                </select>
+              </div>
+            </div>
+            
+            <button class="searcher__button" type="submit" form="searcher-form">search</button>
+          </form>
+        </div>
+        <div class="searcher__results">
+          <h3>Results:</h3>
+          <% products.forEach(product=>{%>
+            <div class="searcher__product-container">
+              <div class="searcher__product">
+                <div>
+                  <img src="<%=product.coverPath%>" alt="">
+                </div>
+                <section>
+                  <h5>
+                    <%=product.name%>
+                  </h5>
+                  <span><span>Type: </span><%=product.type%></span>
+                  <span><span>Brand: </span><%=product.brandName%></span>
+                  <span><span>Price: </span><%=product.price%></span>
+                </section>
+              </div>
+              <a href="/product/<%=product.id%>">see product</a>
+            </div>
+            <%})%>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -5,11 +5,13 @@ import dotenv from "dotenv";
 import {URL} from "url"; */
 import expressLayouts from "express-ejs-layouts";
 import {indexRouter} from "./routes/indexR.js";
+import {searchRouter} from "./routes/searchR.js";
 import {earphonesRouter} from "./routes/earphonesR.js";
 import {headphonesRouter} from "./routes/headphonesR.js";
 import {speakersRouter} from "./routes/speakersR.js";
 import {productsRouter} from "./routes/productsR.js";
 import {brandsRouter} from "./routes/brandsR.js";
+import {productRouter} from "./routes/productR.js";
 
 if(process.env.NODE_ENV !== 'production')
 {
@@ -34,11 +36,13 @@ db.on('error',err=>console.log(`mongodb | an error occureed: ${err}`));
 db.once('open',()=>console.log(`mongodb | successfully connected`));
 
 app.use('/',indexRouter);
+app.use('/search',searchRouter);
 app.use('/earphones',earphonesRouter);
 app.use('/headphones',headphonesRouter);
 app.use('/speakers',speakersRouter);
 app.use('/products',productsRouter);
 app.use('/brands',brandsRouter);
+app.use('/product',productRouter);
 
 
 app.listen(process.env.PORT || 3000);
