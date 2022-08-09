@@ -1,6 +1,7 @@
 import express from 'express';
 import {Product} from "../models/productM.js";
-import {Brand } from "../models/brandsM.js";
+import {Brand} from "../models/brandsM.js";
+
 
 const searchRouter = express.Router();
 
@@ -26,7 +27,7 @@ searchRouter.get('/',async(req,res)=>
         const brands = await Brand.find();
         const products = await Product.find(productOptions);
 
-        if(products.length>0)
+       /*  if(products.length>0)
         {
             await new Promise((res,rej)=>
             {
@@ -42,7 +43,7 @@ searchRouter.get('/',async(req,res)=>
                         }
                     });
             });
-        }
+        } */
 
         res.render('./search/searchV',
         {
