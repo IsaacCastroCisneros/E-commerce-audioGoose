@@ -8,7 +8,7 @@ headphonesRouter.get('/', async(req, res)=>
    try
    {
       const a10 = await Product.findOne({name:'A10'});
-      const a20 = await Product.findOne({name:'A20'});
+      const a20 = await Product.findById('62f2c1420b8e9e65df160745');
       const g435 = await Product.findOne({name:'G435'});
      
       res.render('./headphones/indexV',
