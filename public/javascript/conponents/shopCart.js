@@ -2,6 +2,7 @@ import setBump from "../util/setBump.js";
 import addGlobalEventListener from "../util/addGlobalEventListener.js";
 import only2CharValue from "../util/only2CharValue.js";
 import checkout from "./checkout.js";
+import formatCurrency from "../util/formatCurrency.js";
 
 const LOCAL_STORAGE = 'cart';
 
@@ -219,7 +220,7 @@ function createProductCart(item)
 {
     const template = document.querySelector('[data-shopcart-template]');
     const clone = template.content.cloneNode(true);
-    const cloneId = clone.querySelector('[data-shopcart-product]')
+    const cloneId = clone.querySelector('[data-shopcart-product]');
     const cloneName = clone.querySelector('[data-shopcart-product-name]');
     const clonePrice = clone.querySelector('[data-shopcart-product-price]');
     const cloneImg = clone.querySelector('[data-shopcart-product-img]');
@@ -227,7 +228,7 @@ function createProductCart(item)
  
     cloneId.dataset.id=item.id;
     cloneName.textContent=item.name;
-    clonePrice.textContent=item.price;
+    clonePrice.textContent=formatCurrency(item.price);
     cloneImg.src=item.imgPath;
     cloneInput.value=item.quantity;
 
@@ -273,7 +274,7 @@ function calculateTotals()
      return tot + num
    },0);
 
-   total.textContent=Number(totals);
+   total.textContent=formatCurrency(Number(totals));
    allQuantity();
 }
 function findItem(id)

@@ -1,6 +1,7 @@
 @use '../../util/extends';
 @use '../../util/custom-properties';
 
+
 .checkout
 {
     @extend .flex;
@@ -96,6 +97,8 @@
             &-container
             {
                 margin-bottom: 2.5rem;
+                overflow-y: auto;
+                max-height: 25rem;
             }
         }
         &-img

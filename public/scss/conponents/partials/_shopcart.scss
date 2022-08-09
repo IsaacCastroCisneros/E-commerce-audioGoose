@@ -53,11 +53,14 @@
     &__product-container
     {
         margin-bottom: 1.8rem;
+        max-height: 25rem;
+        overflow-y: auto;
     }
     &__product
     {
         @extend .flex;
         margin-bottom: 1.5rem;
+        padding: 0 .5rem;
 
         div:first-child
         {
@@ -106,6 +109,12 @@
                 outline: none;
                 width: 30%;
                 text-align: center;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0;
+                }
             }
         }
         &-name

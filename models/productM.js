@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {Brand} from "./brandsM.js";
+import formatCurrency from "../public/javascript/util/formatCurrency.js";
 
 const productSchema = new mongoose.Schema(
     {
@@ -122,6 +122,11 @@ productSchema.virtual('descriptionIdented').get(function()
 
     return filter
 })
+productSchema.virtual('priceFormatted').get(function()
+{
+    return formatCurrency(this.price)
+})
+
 
 const Product = mongoose.model('Product',productSchema);
 export {Product}

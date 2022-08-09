@@ -1,10 +1,9 @@
 /* const LOCAL_STORAGE = 'totals'; */
 import addGlobalEventListener from "../util/addGlobalEventListener.js";
+import formatCurrency from "../util/formatCurrency.js";
 
-function getCart()
-{
-    return JSON.parse(localStorage.getItem('cart')) || []
-}
+let LOCAL_STORAGE = 'cart';
+
 
 export default function checkout()
 {
@@ -31,6 +30,12 @@ export default function checkout()
 
     cart.forEach(renderCartItems);
     calculateTotals(cart);
+
+    addGlobalEventListener('submit','[data-checkout-form]',e=>
+    {
+        cart=[];
+        setCart(cart);
+    });
 
     addGlobalEventListener('click','[data-checkout-summary-button]',e=>
     {
@@ -65,7 +70,7 @@ function renderCartItems(item)
 
     imgClone.src=item.imgPath;
     nameClone.textContent=item.name;
-    priceClone.textContent=item.price;
+    priceClone.textContent=formatCurrency(item.price);
     quantityClone.textContent='x'+item.quantity;
     inputDataClone.value=`{"id":"${item.id}","quantity":"${item.quantity}"}`;
 
@@ -89,30 +94,17 @@ function calculateTotals(cart)
    const vat = Math.round(totals * 0.16);
    const grandTotals = Math.round(totals + vat + 50);
 
-   totalElement.textContent=totals;
-   grandTotalElement.textContent=grandTotals;
-   shippingElement.textContent=50;
-   vatElement.textContent=vat;
+   totalElement.textContent=formatCurrency(totals);
+   grandTotalElement.textContent=formatCurrency(grandTotals);
+   shippingElement.textContent=formatCurrency(50);
+   vatElement.textContent=formatCurrency(vat);
 }
 
-/* function renderConfirmation()
+function getCart()
 {
-    const template = document.querySelector('[data-confirmation-template]');
-    const clone = template.content.cloneNode(true);
-    
-    const container = document.querySelector('body');
-    
-    container.appendChild(clone)
-} */
-
-/* function renderProducts()
+    return JSON.parse(localStorage.getItem(LOCAL_STORAGE)) || []
+}
+function setCart(cart)
 {
-    fetch('/checkout',
-    {
-        method:'POST',
-        headers:
-        {
-            'Content-Type':'application/json'
-        }
-    })
-} */
+    localStorage.setItem(LOCAL_STORAGE,JSON.stringify(cart))
+}

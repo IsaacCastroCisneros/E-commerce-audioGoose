@@ -16,14 +16,6 @@
   {
     padding-top: 5rem;
   }
-/*   &--less-padding
-  {
-    padding-top: 2rem;
-  } */
-  &__products
-  {
-     
-  }
   &__products-link
   {
     @extend .link;
@@ -45,6 +37,13 @@
           {
             padding:0 0 0 1.5rem;
           }
+       }
+       
+       &-price
+       {
+          font-size: 1.3rem;
+          font-weight: bold;
+          color: var(--text-color-black);
        }
 
        &-section
@@ -92,7 +91,7 @@
           }
           h1
           {
-            font-size: 2.2rem;
+            font-size: 3rem;
 
             span
             {
@@ -103,7 +102,8 @@
           {
             color: var(--text-color);
             margin-bottom: 1.6rem;
-          }  
+          }
+
           a,button
           {
             @extend .link-button;
@@ -146,6 +146,12 @@
               font-weight: bolder;
               background-color: transparent;
               width: 5rem;
+
+              &::-webkit-outer-spin-button,
+              &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
            }
          }
        }
@@ -179,7 +185,7 @@
           span
           {
             font-weight: bold;
-
+            margin-bottom: .5rem;
             span
             {
               color: var(--text-color-black);
@@ -188,6 +194,7 @@
           ul
           {
              color: var(--text-color);
+             margin-left: 1rem;
           }
        }
        &-img-container
@@ -222,7 +229,7 @@
               width: 130%;
             }
           }
-       }
+        }
        &-also
        {
            margin-bottom: 14rem;
@@ -323,7 +330,7 @@
           }
        }
      }
-     &__product--headphones
+     &__product
      {
        flex-direction: column;
        gap: 2.2rem;
@@ -335,10 +342,8 @@
 
        &-aside
        {
-         text-align: center;
-         padding: 0 3.5rem;
-         align-items: center;
-
+         padding: 0;
+         align-items: flex-start;
        }
        &--reverse aside
        {
@@ -397,6 +402,7 @@
     }
   }
 }
+
 @media only screen and (max-width:500px)
 {
   .content
@@ -407,9 +413,6 @@
 
        &-aside
        {
-         text-align: center;
-         padding: 0 1.5rem;
-         align-items: center;
 
          &--product-page
          {
@@ -419,6 +422,18 @@
            align-items: flex-start;
          }
        }
+
+       &-img-container
+       {
+          grid-template-columns: 1fr;
+       }
+       &-img
+       {
+          &--large
+          {
+            grid-row: initial;
+          }
+        }
      }
    }
 }

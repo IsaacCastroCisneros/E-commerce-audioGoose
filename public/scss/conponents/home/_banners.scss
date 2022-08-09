@@ -33,18 +33,17 @@
             @extend .flex;
             align-items: flex-end;
             height: 100%;
-            padding-left: 8em;
+            padding-left: 3rem;
 
             img
             {
                 position: relative;
-                bottom: -3em;
-                height: 85%;
+                height: 70%;
             }
         }
         &-aside
         {
-            padding-left: 7.5em;
+            padding-left: 3.5em;
         }
         &-item-top
         {

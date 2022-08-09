@@ -19,7 +19,7 @@
                             <%= product.preview %>
                         </p>
                         <span class="content__product-price" data-content-product-price>
-                            <%= product.price %>
+                            <%=product.priceFormatted%>
                         </span>
                         <form class="content__product-form" data-content-product-form>
                             <div class="content__product-form-container" data-content-product-form-container>
@@ -66,10 +66,12 @@
                                 <div class="content__product-also-img">
                                     <img src="<%=product.coverPath%>" alt="">
                                 </div>
-                                <h3><%=product.name%></h3>
+                                <h3>
+                                    <%=product.name%>
+                                </h3>
                                 <a href="/product/<%=product.id%>">see product</a>
                             </div>
-                        <%})%>
+                            <%})%>
                     </div>
                 </div>
             </div>
@@ -87,7 +89,7 @@
                         </a>
                     </li>
                     <li class="mob-nav-bar__item">
-                        <a href="/headphones" class="mob-nav-bar__link">
+                        <a href="/speakers" class="mob-nav-bar__link">
                             <img src="../../public/dist/images/mob-nav-bar/image-speakers.png" alt="">
                             <section class="mob-nav-bar__link-section">
                                 <h3>
@@ -98,7 +100,7 @@
                         </a>
                     </li>
                     <li class="mob-nav-bar__item">
-                        <a href="/headphones" class="mob-nav-bar__link">
+                        <a href="/earphones" class="mob-nav-bar__link">
                             <img src="../../public/dist/images/mob-nav-bar/image-earphones.png" alt="">
                             <section class="mob-nav-bar__link-section">
                                 <h3>
@@ -131,6 +133,6 @@
                         src="../public/dist/images/home/dude-mob-2.jpg" alt="">
                 </aside>
             </div>
-        </div> 
+        </div>
     </div>
 </main>

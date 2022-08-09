@@ -120,16 +120,19 @@
                <input type="text" placeholder="Search" name="search">
             </div>
          </form>
-         <!-- <a href="/search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-         </a> -->
          <button class="nav-bar__button" data-nav-bar-button>
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="nav-bar__notification" data-nav-bar-notification>00</span>
          </button>
       </nav>
       </nav>
-      <nav class="mob-nav-bar" data-mob-nav-bar>
+      <nav class="mob-nav-bar mob-nav-bar--shadow" data-mob-nav-bar>
+         <form action="/" method="POST">
+            <div class="mob-nav-bar__input-container nav-bar__input-container nav-bar__input-container--mob ">
+               <button><i class="fa-solid fa-magnifying-glass"></i></button>
+               <input type="text" placeholder="Search" name="search">
+            </div>
+         </form>
          <ul class="mob-nav-bar__list">
             <li class="mob-nav-bar__item">
                <a href="/headphones" class="mob-nav-bar__link">
@@ -143,7 +146,7 @@
                </a>
             </li>
             <li class="mob-nav-bar__item">
-               <a href="/headphones" class="mob-nav-bar__link">
+               <a href="/speakers" class="mob-nav-bar__link">
                   <img src="../../public/dist/images/mob-nav-bar/image-speakers.png" alt="">
                   <section class="mob-nav-bar__link-section">
                      <h3>
@@ -154,7 +157,7 @@
                </a>
             </li>
             <li class="mob-nav-bar__item">
-               <a href="/headphones" class="mob-nav-bar__link">
+               <a href="/earphones" class="mob-nav-bar__link">
                   <img src="../../public/dist/images/mob-nav-bar/image-earphones.png" alt="">
                   <section class="mob-nav-bar__link-section">
                      <h3>
