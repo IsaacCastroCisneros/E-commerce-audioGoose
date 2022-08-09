@@ -1,4 +1,3 @@
-
 export default function mobNavbar()
 {
     window.addEventListener('DOMContentLoaded',linkMarker)

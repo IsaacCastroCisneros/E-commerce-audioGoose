@@ -8,7 +8,7 @@ indexRouter.get('/',async(req,res)=>
 
 indexRouter.post('/',async(req,res)=>
 {
-    res.redirect(`/search?name=${req.body.search}`);
+    res.redirect(`/search?name=${req.body.search}`);   
 })
 
 export {indexRouter}

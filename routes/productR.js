@@ -35,4 +35,17 @@ productRouter.get('/:id',async(req,res)=>
     }
 })
 
+productRouter.post('/:id',async(req,res)=>
+{
+    try
+    {
+       const product = await Product.findById(req.params.id);
+       res.json({product,coverPath:product.coverPath})
+    }
+    catch(err)
+    {
+       res.send('something wrong was happend: '+err);
+    }
+});
+
 export{productRouter}

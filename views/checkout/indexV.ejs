@@ -1,0 +1,117 @@
+<main class="main">
+    <div class="content-block">
+        <div class="content content--padding">
+            <form action="/checkout" class="checkout" method="POST" data-checkout-form>
+                <div class="checkout__checkout">
+                    <a href="/"></a>
+                    <h1 class="checkout__title">CHECKOUT</h1>
+                    <div class="checkout__block">
+                        <h3 class="checkout__block-title">billing DETAILS</h3>
+                        <div class="checkout__block-container">
+                            <div class="checkout__input-container" data-checkout-input-container>
+                                <div>
+                                    <label class="checkout__label">name</label>
+                                    <span>field cannot be empty</span>
+                                </div>
+                                <input data-checkout-input class="checkout__input" type="text" required
+                                    placeholder="Isaac Castro" value="fdfdf">
+                            </div>
+                            <div class="checkout__input-container" data-checkout-input-container>
+                                <div>
+                                    <label class="checkout__label">email address</label>
+                                    <span>field cannot be empty</span>
+                                </div>
+                                <input data-checkout-input class="checkout__input" type="email" required
+                                    placeholder="isaac@mail.com" value="isaac@mail.com">
+                            </div>
+                            <div class="checkout__input-container" data-checkout-input-container>
+                                <div>
+                                    <label class="checkout__label">phone number</label>
+                                    <span>field cannot be empty</span>
+                                </div>
+                                <input data-checkout-input class="checkout__input" type="text" required
+                                    placeholder="971531502" value="971531502">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout__shipping">
+                        <h3 class="checkout__block-title">SHIPPING INFO</h3>
+                        <div class="checkout__block-container">
+                            <div class="checkout__input-container checkout__input-container--width"
+                                data-checkout-input-container>
+                                <div>
+                                    <label class="checkout__label">your address</label>
+                                    <span>field cannot be empty</span>
+                                </div>
+                                <input data-checkout-input class="checkout__input" type="text" required
+                                    placeholder="1137 Williams Avenue" value="1137 Williams Avenue">
+                            </div>
+                            <div class="checkout__input-container" data-checkout-input-container>
+                                <div>
+                                    <label class="checkout__label">zip code</label>
+                                    <span>field cannot be empty</span>
+                                </div>
+                                <input data-checkout-input minlength="5" class="checkout__input" type="text" required
+                                    placeholder="10001" value="10001">
+                            </div>
+                            <div class="checkout__input-container" data-checkout-input-container>
+                                <div>
+                                    <label class="checkout__label">city</label>
+                                    <span>field cannot be empty</span>
+                                </div>
+                                <input data-checkout-input class="checkout__input" type="text" required
+                                    placeholder="New York" value="New York">
+                            </div>
+                            <div class="checkout__input-container" data-checkout-input-container>
+                                <div>
+                                    <label class="checkout__label">country</label>
+                                    <span>field cannot be empty</span>
+                                </div>
+                                <input data-checkout-input class="checkout__input" type="text" required
+                                    placeholder="United States" value="United States">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout__summary">
+                    <h3 class="checkout__summary-title">SUMMARY</h3>
+                    <input class="checkout__summary-input-none" type="text" name="productAll" data-checkout-summary-product-all>
+                    <template data-checkout-summary-template>
+                        <div class="checkout__summary-product" data-checkout-summary-product>
+                            <input class="checkout__summary-input-none" type="text" name="productData" data-checkout-summary-product-data>
+                            <div class="checkout__summary-img">
+                                <img data-checkout-summary-img src="" alt="">
+                            </div>
+                            <section class="checkout__summary-section">
+                                <h3 data-checkout-summary-name class="checkout__summary-name"></h3>
+                                <span>Price: <span data-checkout-summary-price
+                                        class="checkout__summary-price"></span></span>
+                            </section>
+                            <span data-checkout-summary-quantity class="checkout__summary-quantity"></span>
+                        </div>
+                    </template>
+                    <div class="checkout__summary-product-container" data-checkout-summary-product-container>
+                    </div>
+                    <div class="checkout__summary-container">
+                        <span>TOTAL</span>
+                        <span class="checkout__summary-total" data-checkout-summary-total>0</span>
+                    </div>
+                    <div class="checkout__summary-container">
+                        <span>SHIPPING</span>
+                        <span class="checkout__summary-shipping" data-checkout-summary-shipping>0</span>
+                    </div>
+                    <div class="checkout__summary-container checkout__summary-container--last">
+                        <span>VAT (INCLUDED)</span>
+                        <span class="checkout__summary-vat" data-checkout-summary-vat>0</span>
+                    </div>
+                    <div class="checkout__summary-container">
+                        <span>GRAND TOTAL</span>
+                        <span class="checkout__summary-grand-total" data-checkout-summary-grand-total>0</span>
+                    </div>
+                    <button data-checkout-summary-button class="checkout__summary-button" type="submit">continue &
+                        pay</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

@@ -1,9 +1,9 @@
 import setBump from "../util/setBump.js";
 import addGlobalEventListener from "../util/addGlobalEventListener.js";
 import only2CharValue from "../util/only2CharValue.js";
-import product from "./product.js";
+import checkout from "./checkout.js";
 
-const LOCAL_STORAGE = 'cart'
+const LOCAL_STORAGE = 'cart';
 
 let cart = getCart();
 
@@ -43,6 +43,7 @@ export default function shopCart()
         localStorage.removeItem(LOCAL_STORAGE);
         cart=[];
         renderProductCart();
+        checkout();
     });
     addGlobalEventListener('input','[data-shopcart-product-input]',e=>
     {
@@ -56,6 +57,7 @@ export default function shopCart()
 
         calculateTotals();
         setCart();
+        checkout();
     });
     addGlobalEventListener('submit','[data-shopcart-form]',e=>
     {
@@ -81,6 +83,7 @@ export default function shopCart()
        currentItem.quantity=Number(input.value);
        setCart();
        calculateTotals();
+       checkout();
     });
     window.addEventListener('click',e=>
     {
@@ -100,15 +103,21 @@ async function createNotification(e)
 {
     e.preventDefault();
 
+    const item = await productRequest();
+    const product = item.product;
+    const coverPath = item.coverPath;
+
     const input = document.querySelector('[data-content-product-form-input]');
-    const id = document.querySelector('[data-content-product]').dataset.id;
     const container = document.querySelector('[data-notification-container]');
     const name = document.querySelector('[data-content-product-name]').textContent;
-    const price = document.querySelector('[data-content-product-price]').textContent;
-    const imgPath = document.querySelector('[data-content-product-img]').src;
     const quantity = input.value;
 
-    createItem(id,name,Number(price),Number(quantity),imgPath)
+    createItem(product._id,
+               product.name,
+               Number(product.price),
+               Number(quantity),
+               coverPath);
+
     renderProductCart();
 
     if(Number(input.value)>0)
@@ -130,9 +139,38 @@ async function createNotification(e)
        currentNotification.classList.remove('show');
        await setBump(300);
        currentNotification.remove();
-    }
-    
+    }   
 }
+
+async function productRequest()
+{
+    const url = window.location.href;
+    const urlCasting = url.split('/');
+    const newUrl = urlCasting[urlCasting.length - 1];
+
+    const res = await fetch(newUrl,
+        {
+            method:'POST'/* , */
+            /* headers:
+            {
+                'Content-type':'application/json'
+            } */
+        })
+    
+    return res.json();
+
+    /* fetch(newUrl,
+        {
+            method:'POST',
+            headers:
+            {
+                'Content-type':'application/json'
+            }
+        })
+        .then(res=> res.json())
+        .then(data=> console.log(data)) */
+}
+
 function renderNotification(name,cont)
 {
     const template = document.querySelector('[data-notification-template]');

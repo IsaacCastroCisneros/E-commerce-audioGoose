@@ -1,0 +1,47 @@
+<main class="main">
+    <div class="content-block">
+        <div class="content content--padding">
+            <div class="confirmation">
+                <div class="confirmation__check-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h1>
+                    THANK YOU
+                    FOR YOUR ORDER
+                </h1>
+                <p>
+                    You will receive an email confirmation shortly.
+                </p>
+                <div class="confirmation__product">
+                    <div class="confirmation__product-block">
+                        <div class="confirmation__product-container">
+                            <%products.forEach(product=>{%>
+                                <div class="confirmation__product-item">
+                                    <div class="confirmation__product-img">
+                                        <img data-confirmation-img src="<%=product.coverPath%>" alt="">
+                                    </div>
+                                    <section class="confirmation__product-section">
+                                        <h5 class="confirmation__product-name" data-confirmation-name>
+                                            <%=product.name%>
+                                        </h5>
+                                        <span class="confirmation__product-price" data-confirmation-price>
+                                            <%=product.price%>
+                                        </span>
+                                    </section>
+                                    <span class="confirmation__product-quantity">x<%=product.quantity%></span>
+                                </div>
+                                <%})%>
+                        </div>
+                    </div>
+                    <aside class="confirmation__product-aside">
+                        <h5>GRAND TOTAL</h5>
+                        <span class="confirmation__product-total">
+                            <%=grandTotal%>
+                        </span>
+                    </aside>
+                </div>
+                <a class="confirmation__link" href="/">back to home</a>
+            </div>
+        </div>
+    </div>
+</main>

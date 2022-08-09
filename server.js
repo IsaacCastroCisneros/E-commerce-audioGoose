@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+
 /* import path from "path";
 import {URL} from "url"; */
 import expressLayouts from "express-ejs-layouts";
@@ -12,6 +13,7 @@ import {speakersRouter} from "./routes/speakersR.js";
 import {productsRouter} from "./routes/productsR.js";
 import {brandsRouter} from "./routes/brandsR.js";
 import {productRouter} from "./routes/productR.js";
+import {checkoutRouter} from "./routes/checkoutR.js";
 
 if(process.env.NODE_ENV !== 'production')
 {
@@ -43,9 +45,12 @@ app.use('/speakers',speakersRouter);
 app.use('/products',productsRouter);
 app.use('/brands',brandsRouter);
 app.use('/product',productRouter);
+app.use('/checkout',checkoutRouter);
 
 
 app.listen(process.env.PORT || 3000);
+
+
 
 
 
