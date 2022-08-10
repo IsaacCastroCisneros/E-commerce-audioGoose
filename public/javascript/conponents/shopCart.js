@@ -134,7 +134,6 @@ async function createNotification(e)
        container.appendChild(newNotification);
 
        const currentNotification = document.querySelector(`[data-notification="${cont}"]`);
-       await setBump(100);
        currentNotification.classList.add('show');
        await setBump(3500);
        currentNotification.classList.remove('show');
